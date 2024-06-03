@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="logo.jpeg">
+    <title>Sonidos</title>
+  </head>
+  <body>
+    <div class="blur-overlay"></div>
+    <div class="blur-overlay1"></div>
+    <div class="boxWidthClass">
+      <div class="upperBtnDiv boxWidthClass">
+      <button class="upperBtn" id="playNotesBtn" value="pn" onclick="changeMode(this)" disabled>
+        Play Notes
+      </button>
+      <button class="upperBtn" id="playGameBtn" value="pg" onclick="changeMode(this)" >Play Game</button>
+    </div>
+    </div>
+
+    <div id="mainArea" class="boxWidthClass">  
+        <h3>Play the Notes</h3>
+        <div class="features">
+            <button class="featuresBtn" id="changeNotesName" onclick="changeNoteName()">
+                Change Notation
+            </button>
+            <button class="featuresBtn" onclick="markDarkNotes()"><span id="markId">Mark</span> Enharmonic Notes</button>
+            <button class="featuresBtn" type="checkbox" id="darkNotesBtn" onclick="addDarkNotes()">
+                Disable Enharmonic Notes
+            </button>
+            <select id="mydropSound" class="featuresBtn" onchange="changeSound()">
+              <option value="1">Piano</option>
+              <!-- <option value="2">Vocal Choir</option> -->
+            </select>
+            <select id="mydropDownRoot" class="featuresBtn" onchange="changeRoot()">
+            </select>
+            <select id="mydropDown" class="featuresBtn" onchange="addOrSubNote()">
+              <option value="1">layout 1</option>
+              <option value="2"> layout 2</option>
+              <option value="3">layout 3</option>
+            </select>
+        </div>
+        <span id="scoreSpan" class="gameElm hideClass"
+            >Correct: <span id="correctScoreSpan">0</span><br />
+            Wrong: &nbsp;&nbsp;<span id="wrongScoreSpan">0</span>
+        </span>
+        <div class="gameDivSpeaker gameElm hideClass">
+            <button id="RootBtn" onClick="playRoot()">
+              Root <img class="SpeakerImg" src="speaker2.png" />
+            </button>
+
+            <button id="randomNoteSpeakerBtn" onClick="playRandomNotes()">
+              Listen The Note<img src="speaker2.png" class="SpeakerImg" />
+            </button>
+        </div>
+      <div id="allNotesPlay_small">
+        <div id="keysContainer">
+        </div>
+      </div>
+        <button id="startGameBtn" class="hideClass" onclick="startGame()">Play</button>
+        <div class="resultDiv hideClass">
+            <span id="resultSpan">Correct</span>
+            <button id="playAgainBtn" onclick="startedGame()">Play again</button>
+            <div style="position: absolute; right:4vw">
+              Auto Play
+              <input type="checkbox" id="autoplayCheckbox">
+            </div>
+        </div>
+    </div>
+    <script src="script2.js"></script>
+  </body>
+</html>
